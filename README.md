@@ -1,6 +1,18 @@
 # Understanding Cyclic Federated Training with XGBoost
 
-This code snippet implements a form of **federated learning** using **XGBoost** in a *cyclic training style*. Let’s break it down.
+This repo implements a form of **federated learning** using **XGBoost** in a *cyclic training style*. Let’s break it down.
+
+**Traditional Federated Learning (FedAvg)**  
+- Clients train locally and send updates to a **central server**, which averages them into a global model.  
+- ✅ Scalable, parallel training, and widely used in practice.  
+- ⚠️ Requires a server and can struggle with very different (non-IID) data.  
+*(McMahan et al., 2017 — [FedAvg Paper](https://arxiv.org/abs/1602.05629))*
+
+**Cyclic Federated Learning (CFL)**  
+- The global model is passed **client-to-client in a cycle**, each site updating before handing it on.  
+- ✅ No server required, simpler communication, fits decentralized settings.  
+- ⚠️ Sequential (slower) and client order can influence results.  
+*(Pengyu  et al., 2021 — [Cyclic FL](https://arxiv.org/abs/2301.12193))*
 
 ---
 
